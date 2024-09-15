@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Input } from '../shared/input';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 export default function MainPage() {
   const [productList, setProductList] = useState([]);
@@ -18,7 +19,7 @@ export default function MainPage() {
       try {
         setLoading(true);
         const res = await axios.get(
-          `http://localhost:8000/product/list?page=${page}&limit=${limit}`,
+          `${REACT_APP_API_URL}/product/list?page=${page}&limit=${limit}`,
         );
 
         const newProductInfo = res.data.productInfo;
@@ -147,7 +148,7 @@ export default function MainPage() {
     }
 
     try {
-      const res = await axios.post('http://localhost:8000/product/search', {
+      const res = await axios.post(`${REACT_APP_API_URL}/product/search`, {
         searchKeyword: searchKeyword,
         searchType: 'name',
       });

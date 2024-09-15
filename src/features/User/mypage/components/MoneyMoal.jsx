@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMoney } from '../../store/userSlice';
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const MoneyMoal = ({ isModalOpen, closeModal }) => {
   const [isMoneyInput, setIsMoneyInput] = useState(''); // 충전할 금액 상태 관리
@@ -14,7 +15,7 @@ const MoneyMoal = ({ isModalOpen, closeModal }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `http://localhost:8000/user/money/${userId}`,
+        `${REACT_APP_API_URL}/user/money/${userId}`,
         {
           money: isMoneyInput,
         },

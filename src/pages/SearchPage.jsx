@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useLocation, Link, Navigate } from 'react-router-dom';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const SearchResults = () => {
   const location = useLocation();
@@ -22,7 +23,7 @@ const SearchResults = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:8000/product/search', {
+      const res = await axios.post(`${REACT_APP_API_URL}/product/search`, {
         searchKeyword: searchKeyword,
         searchType: searchType,
       });

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setUsers, updateUserStatus, removeUser } from '../store/userTabSlice';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const UserTabPage = () => {
   const users = useSelector((state) => state.userTab.users);
@@ -18,7 +19,7 @@ const UserTabPage = () => {
       localStorage.getItem('token'),
     );
     axios
-      .get(`http://localhost:8000/user/list`, {
+      .get(`${REACT_APP_API_URL}/user/list`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },

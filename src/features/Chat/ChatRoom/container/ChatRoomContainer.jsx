@@ -5,6 +5,7 @@ import { addMessage, setMessages } from '../store/chatRoomSlice';
 import { updateLastMessage } from '../../ChatRoomList/store/chatRoomListSlice';
 import useSocket from '../../hooks/useSocket'; // 소켓 연결
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const ChatRoomContainer = () => {
   const [message, setMessage] = useState('');
@@ -36,7 +37,7 @@ const ChatRoomContainer = () => {
   useEffect(() => {
     if (currentChatRoom) {
       axios
-        .get(`http://localhost:8000/message/${currentChatRoom.roomId}`, {
+        .get(`${REACT_APP_API_URL}/message/${currentChatRoom.roomId}`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },

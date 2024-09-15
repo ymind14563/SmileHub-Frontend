@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar } from 'flowbite-react';
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const LikeList = () => {
   const [likeProducts, setLikeProducts] = useState([]); // 찜 목록 상태 관리
@@ -11,7 +12,7 @@ const LikeList = () => {
     try {
       const token = localStorage.getItem('token'); // 토큰 가져오기
       const res = await axios.post(
-        'http://localhost:8000/mypage',
+        `${REACT_APP_API_URL}/mypage`,
         {
           mypageList: 'likes',
         },
@@ -44,7 +45,7 @@ const LikeList = () => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.delete(
-        `http://localhost:8000/mypage/likesdelete?productId=${productId}`,
+        `${REACT_APP_API_URL}/mypage/likesdelete?productId=${productId}`,
         {
           headers: {
             Authorization: token,

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { deleteUser, setUserField } from '../../store/userSlice';
 import axios from 'axios';
 import MyPage from '../../../../pages/User/MyPage';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const MyPageContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // 충전하기 버튼 클릭시 모달 상태 관리
@@ -30,7 +31,7 @@ const MyPageContainer = () => {
         console.log('Token:', token);
 
         // DELETE 요청에 Authorization 헤더 추가
-        await axios.delete(`http://localhost:8000/user/${userId}`, {
+        await axios.delete(`${REACT_APP_API_URL}/user/${userId}`, {
           headers: {
             Authorization: token,
           },

@@ -1,7 +1,8 @@
 import { io } from 'socket.io-client';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 // Socket.IO 서버에 연결 (서버 URL 및 옵션 설정)
-const socket = io(`http://localhost:8000`, {
+const socket = io(`${REACT_APP_API_URL}`, {
   auth: {
     token: localStorage.getItem('token'), // 로컬 스토리지에 저장된 토큰을 통해 인증
   },

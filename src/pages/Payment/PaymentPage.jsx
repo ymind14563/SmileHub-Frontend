@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import MoneyMoal from '../../features/User/mypage/components/MoneyMoal';
 import { pay } from '../../features/User/store/userSlice';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const PaymentPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // 주소 modal 상태관리
@@ -125,7 +126,7 @@ const PaymentPage = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:8000/mypage/payment`,
+        `${REACT_APP_API_URL}/mypage/payment`,
         {
           productId,
         },

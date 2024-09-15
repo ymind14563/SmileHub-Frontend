@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
 let socket;
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 // WebSocket용 custom hook
 const useSocket = (roomId) => {
@@ -10,7 +11,7 @@ const useSocket = (roomId) => {
   useEffect(() => {
     // 소켓 중복 생성 방지
     if (!socket) {
-      socket = io('http://localhost:8000');
+      socket = io(`${REACT_APP_API_URL}`);
     } else {
     }
 

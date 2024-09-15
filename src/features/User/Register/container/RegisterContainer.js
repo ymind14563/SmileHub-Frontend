@@ -5,6 +5,7 @@ import { registerUser, setUserFields } from '../../store/userSlice';
 import RegisterPage from '../../../../pages/User/RegisterPage';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const RegisterContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false); // 주소 modal 상태관리
@@ -59,7 +60,7 @@ const RegisterContainer = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:8000/user', {
+      const res = await axios.post(`${REACT_APP_API_URL}/user`, {
         nickname: data.nickname,
         email: data.email,
         password: data.password,
@@ -123,7 +124,7 @@ const RegisterContainer = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:8000/user/checkEmail', {
+      const res = await axios.post(`${REACT_APP_API_URL}/user/checkEmail`, {
         email: checkEmail,
       });
       console.log('res >>', res);
@@ -146,7 +147,7 @@ const RegisterContainer = () => {
   const handleCheckNickname = async () => {
     setIsNicknameChecked(true);
     try {
-      const res = await axios.post('http://localhost:8000/user/checkNickname', {
+      const res = await axios.post(`${REACT_APP_API_URL}/user/checkNickname`, {
         nickname: checkNickname,
       });
       console.log('res >>', res);

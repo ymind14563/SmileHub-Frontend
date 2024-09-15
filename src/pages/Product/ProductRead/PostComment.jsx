@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React from 'react';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 export default function PostComment() {
   const submitComment = async (data) => {
     try {
-      const res = axios.post('http://localhost:8000/review', {
+      const res = axios.post(`${REACT_APP_API_URL}/review`, {
         productId: data.productId,
         sellerId: 2,
         reviewContent: '리뷰 시작',

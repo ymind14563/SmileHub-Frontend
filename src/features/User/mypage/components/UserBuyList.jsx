@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar } from 'flowbite-react';
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const UserBuyList = () => {
   const [buys, setBuys] = useState(''); // 구매내역 상태 관리
@@ -11,7 +12,7 @@ const UserBuyList = () => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        'http://localhost:8000/mypage',
+        `${REACT_APP_API_URL}/mypage`,
         {
           mypageList: 'buy',
         },
@@ -38,7 +39,7 @@ const UserBuyList = () => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        'http://localhost:8000/mypage/check',
+        `${REACT_APP_API_URL}/mypage/check`,
         {
           productId,
           status: 'yes',

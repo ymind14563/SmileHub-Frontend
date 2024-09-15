@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { updateUserStatus, removeUser } from '../store/userTabSlice';
 import { Modal } from '../../../../shared/Modal';
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const UserList = ({ searchResults }) => {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ const UserList = ({ searchResults }) => {
       try {
         const token = localStorage.getItem('token');
         await axios.patch(
-          `http://localhost:8000/user/status/${selectedUser}`,
+          `${REACT_APP_API_URL}/user/status/${selectedUser}`,
           {
             isActive: selectedAction.newStatus,
           },
@@ -71,7 +72,7 @@ const UserList = ({ searchResults }) => {
     } else if (selectedAction?.type === 'remove') {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:8000/user/${selectedUser}`, {
+        await axios.delete(`${REACT_APP_API_URL}/user/${selectedUser}`, {
           headers: {
             Authorization: token,
           },

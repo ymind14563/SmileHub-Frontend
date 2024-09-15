@@ -4,6 +4,7 @@ import { removeProduct } from '../store/productTabSlice';
 import { Modal } from '../../../../shared/Modal';
 import axios from 'axios';
 
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 const ProductList = ({ searchResults, setSearchResults }) => {
   const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ const ProductList = ({ searchResults, setSearchResults }) => {
 
     try {
       await axios.delete(
-        `http://localhost:8000/product/delete?productId=${selectedProduct}`,
+        `${REACT_APP_API_URL}/product/delete?productId=${selectedProduct}`,
         {
           headers: { Authorization: token },
         },

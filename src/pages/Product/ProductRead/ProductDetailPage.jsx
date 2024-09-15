@@ -10,6 +10,7 @@ import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 import { useSelector } from 'react-redux';
 import { Modal } from '../../../shared/Modal';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const ProductDetail = () => {
   const [product, setProduct] = useState(null);
@@ -29,13 +30,13 @@ const ProductDetail = () => {
     try {
       console.log('product.userId > ', product.userId, product.userId !== 0);
       console.log('token > ', token);
-      if (product.userId != 0) {
+      if (product.userId !== 0) {
         const loginLike = product.isLike;
         console.log('loginLike > ', loginLike);
 
         await axios.post(
-          `http://localhost:8000/product/likes/productId=${productId}`,
-          { data: 0 },
+          `${REACT_APP_API_URL}/product/likes/productId=${productId}`,
+
           {
             headers: {
               Authorization: token,
@@ -44,7 +45,7 @@ const ProductDetail = () => {
         );
 
         setLikes(loginLike);
-      } else if (product.userId == 0) {
+      } else if (product.userId === 0) {
         console.log(
           `error.response.data.message >>${error.response.data.message}`,
         );
@@ -67,7 +68,7 @@ const ProductDetail = () => {
     if (confirmDelete) {
       try {
         await axios.delete(
-          `http://localhost:8000/product/delete?productId=${productId}`,
+          `${REACT_APP_API_URL}/product/delete?productId=${productId}`,
           {
             headers: {
               Authorization: token,
@@ -108,7 +109,7 @@ const ProductDetail = () => {
         const productId = product.productId;
 
         const response = await axios.post(
-          'http://localhost:8000/room',
+          `${REACT_APP_API_URL}/room`,
           {
             productId,
             buyerId,
@@ -147,7 +148,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/product/read?productId=${productId}`,
+          `${REACT_APP_API_URL}/product/read?productId=${productId}`,
           {
             headers: {
               Authorization: token,

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserField, setUserFields } from '../../store/userSlice';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 export const LoginContainer = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ export const LoginContainer = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:8000/login', {
+      const res = await axios.post(`${REACT_APP_API_URL}/login`, {
         email,
         password,
       });

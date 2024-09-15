@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../../../App.css';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const EditProduct = () => {
   const [imageFiles, setImageFiles] = useState([]);
@@ -24,7 +25,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/product/read?productId=${productId}`,
+          `${REACT_APP_API_URL}/product/read?productId=${productId}`,
         );
         setProduct(response.data);
       } catch (error) {
@@ -85,7 +86,7 @@ const EditProduct = () => {
       console.log('token >> ', token);
       const response = await axios
         .post(
-          `http://localhost:8000/product/update?productId=${productId}`,
+          `${REACT_APP_API_URL}/product/update?productId=${productId}`,
           formData,
           {
             headers: {

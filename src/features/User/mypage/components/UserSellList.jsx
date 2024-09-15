@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar } from 'flowbite-react';
 import axios from 'axios';
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const UserSellList = ({ fetchSellsList }) => {
   const [sells, setSells] = useState([]); // 판매내역 상태관리
@@ -10,7 +11,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        'http://localhost:8000/mypage',
+        `${REACT_APP_API_URL}/mypage`,
         {
           mypageList: 'sell',
         },
@@ -37,7 +38,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        'http://localhost:8000/mypage/issell',
+        `${REACT_APP_API_URL}/mypage/issell`,
         {
           productId,
           status: 'yes',
@@ -61,7 +62,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        'http://localhost:8000/mypage/issell',
+        `${REACT_APP_API_URL}/mypage/issell`,
         {
           productId,
           status: 'no',
@@ -87,7 +88,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        'http://localhost:8000/mypage/issell',
+        `${REACT_APP_API_URL}/mypage/issell`,
         {
           productId,
           status: 'send',
