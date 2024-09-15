@@ -38,7 +38,7 @@ const UserTabPage = () => {
             user.Locations && user.Locations[0] ? user.Locations[0].depth3 : '',
           depth4:
             user.Locations && user.Locations[0] ? user.Locations[0].depth4 : '',
-          status: user.Active.isActive,
+          status: user.Active?.isActive ?? 1,
           userReportCount: user.userReportCount,
         }));
         dispatch(setUsers(users));
