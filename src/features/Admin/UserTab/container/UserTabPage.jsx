@@ -30,10 +30,14 @@ const UserTabPage = () => {
           nickname: user.nickname,
           email: user.email,
           createdAt: user.createdAt,
-          depth1: user.Locations[0].depth1,
-          depth2: user.Locations[0].depth2,
-          depth3: user.Locations[0].depth3,
-          depth4: user.Locations[0].depth4,
+          depth1:
+            user.Locations && user.Locations[0] ? user.Locations[0].depth1 : '',
+          depth2:
+            user.Locations && user.Locations[0] ? user.Locations[0].depth2 : '',
+          depth3:
+            user.Locations && user.Locations[0] ? user.Locations[0].depth3 : '',
+          depth4:
+            user.Locations && user.Locations[0] ? user.Locations[0].depth4 : '',
           status: user.Active.isActive,
           userReportCount: user.userReportCount,
         }));
