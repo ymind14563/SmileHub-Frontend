@@ -83,14 +83,14 @@ export default function MainPage() {
             <div
               className="flex  md:w-80 w-full  flex-col bg-white border border-coolGray-100 shadow-dashboard rounded-xl 
               h-auto hover:border-[#FEE715]  hover:border-2 hover:duration-200 overflow-hidden transform origin-bottom transition duration-400 ease-in 
-              min-w-60 relative"
+              min-w-60 min-h-80 relative"
             >
-              <div className="flex justify-center items-center">
+              <div className="flex justify-center items-center min-w-[200px] min-h-[200px] mt-1">
                 {productImages.length > 0 ? (
                   <img
                     src={productImages[0].productImage}
                     alt={productInfo.productName}
-                    className="w-24 sm:w-32 md:w-40 lg:w-48 h-auto object-cover"
+                    className="w-24 sm:w-32 md:w-40 lg:w-48 max-h-[200px] object-cover"
                   />
                 ) : (
                   <img
@@ -101,7 +101,7 @@ export default function MainPage() {
                 )}
               </div>
 
-              <div className="flex flex-col justify-center items-start px-4 pt-4 pb-4">
+              <div className="flex flex-col justify-center items-start px-4 pt-4 pb-4 min-h-[200px]">
                 <h2 className="tracking-tight text-gray-900 text-lg font-bold hover:underline block mb-2">
                   {productInfo.productName}
                 </h2>
