@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ChatRoom from '../components/ChatRoom';
-import { addMessage, setMessages } from '../store/chatRoomSlice';
+import {
+  addMessage,
+  setMessages,
+  setCurrentChatRoom,
+} from '../store/chatRoomSlice';
 import { updateLastMessage } from '../../ChatRoomList/store/chatRoomListSlice';
 import useSocket from '../../hooks/useSocket'; // 소켓 연결
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const ChatRoomContainer = () => {
@@ -15,6 +21,7 @@ const ChatRoomContainer = () => {
   const currentChatRoom = useSelector((state) => state.chat.currentChatRoom);
   const messages = useSelector((state) => state.chat.messages);
   const messagesEndRef = useRef(null); // 스크롤 제어 ref
+  const { roomId } = useParams();
 
   // 스크롤 자동 하단 배치
   const scrollToBottom = () => {
@@ -32,6 +39,14 @@ const ChatRoomContainer = () => {
   const { socket, sendMessage, receiveMessage } = useSocket(
     currentChatRoom?.roomId,
   );
+
+  // roomId가 변경되면 currentChatRoom을 다시 설정
+  useEffect(() => {
+    if (roomId) {
+      // roomId를 기반으로 현재 채팅방 설정
+      dispatch(setCurrentChatRoom({ roomId }));
+    }
+  }, [roomId, dispatch]);
 
   // 서버에서 메시지 가져오기
   useEffect(() => {
