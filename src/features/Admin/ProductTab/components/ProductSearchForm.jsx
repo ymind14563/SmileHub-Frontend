@@ -30,7 +30,7 @@ const ProductSearchForm = ({ onSearch, onReset, onStatusChange }) => {
             type="checkbox"
             checked={includeSoldOut}
             onChange={handleCheckboxChange}
-            className="form-checkbox"
+            className="form-checkbox appearance-none h-5 w-5 border border-gray-300 rounded-sm bg-[#FEE715] checked:bg-[#FEE715] focus:outline-none"
           />
           <span>판매완료 포함</span>
         </label>
@@ -69,7 +69,7 @@ const ProductSearchForm = ({ onSearch, onReset, onStatusChange }) => {
           </button>
           <button
             onClick={handleSearch}
-            className="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600"
+            className="bg-[#FEE715] text-white py-1 px-2 rounded-md hover:bg-[#FFF599]"
             style={{
               display: 'inline-block',
               minWidth: '80px',

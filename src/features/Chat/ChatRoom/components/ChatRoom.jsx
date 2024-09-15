@@ -21,7 +21,7 @@ const ChatRoom = ({
             <div
               className={`px-3 p-2 mx-1 my-1 rounded-lg max-w-sm ${
                 msg.senderId === currentUser.userId
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-[#FEE715] text-white'
                   : 'bg-gray-300 text-black'
               }`}
             >
@@ -44,7 +44,7 @@ const ChatRoom = ({
         />
         <button
           onClick={handleSendMessage}
-          className="bg-blue-500 text-white px-4 py-2 rounded-r-lg"
+          className="bg-[#FEE715] text-white px-4 py-2 rounded-r-lg"
         >
           전송
         </button>

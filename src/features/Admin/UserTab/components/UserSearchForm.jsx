@@ -31,7 +31,7 @@ const UserSearchForm = ({ onSearch, onReset, onStatusChange }) => {
             value="전체"
             checked={status === '전체'}
             onChange={() => handleStatusChange('전체')}
-            className="form-radio"
+            className="form-radio appearance-none rounded-full h-4 w-4 border border-gray-300 checked:bg-[#FEE715] checked:border-transparent focus:outline-none"
           />
           <span>전체</span>
         </label>
@@ -41,7 +41,7 @@ const UserSearchForm = ({ onSearch, onReset, onStatusChange }) => {
             value="활동중"
             checked={status === '활동중'}
             onChange={() => handleStatusChange('활동중')}
-            className="form-radio"
+            className="form-radio appearance-none rounded-full h-4 w-4 border border-gray-300 checked:bg-[#FEE715] checked:border-transparent focus:outline-none"
           />
           <span>활동중</span>
         </label>
@@ -51,7 +51,7 @@ const UserSearchForm = ({ onSearch, onReset, onStatusChange }) => {
             value="활동정지"
             checked={status === '활동정지'}
             onChange={() => handleStatusChange('활동정지')}
-            className="form-radio"
+            className="form-radio appearance-none rounded-full h-4 w-4 border border-gray-300 checked:bg-[#FEE715] checked:border-transparent focus:outline-none"
           />
           <span>활동정지</span>
         </label>
@@ -90,7 +90,7 @@ const UserSearchForm = ({ onSearch, onReset, onStatusChange }) => {
           </button>
           <button
             onClick={handleSearch}
-            className="bg-blue-500 text-white py-1 px-2 rounded-md hover:bg-blue-600"
+            className="bg-[#FEE715] text-white py-1 px-2 rounded-md hover:bg-[#FFF599]"
             style={{
               display: 'inline-block',
               minWidth: '80px',

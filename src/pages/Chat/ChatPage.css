@@ -20,7 +20,7 @@
 }
 
 .start-chat-button {
-  background-color: #007bff;
+  background-color: #fee715;
   color: white;
   padding: 5px 20px;
   border: none;
@@ -30,7 +30,7 @@
 }
 
 .start-chat-button:hover {
-  background-color: #0056b3;
+  background-color: #fff599;
 }
 
 .chat-container {
