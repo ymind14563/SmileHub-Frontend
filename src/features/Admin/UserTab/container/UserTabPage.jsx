@@ -19,7 +19,7 @@ const UserTabPage = () => {
       localStorage.getItem('token'),
     );
     axios
-      .get(`${REACT_APP_API_URL}/user/list`, {
+      .get(`${REACT_APP_API_URL}/api/user/list`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },

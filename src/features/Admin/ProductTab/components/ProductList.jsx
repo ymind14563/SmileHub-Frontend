@@ -21,7 +21,7 @@ const ProductList = ({ searchResults, setSearchResults }) => {
 
     try {
       await axios.delete(
-        `${REACT_APP_API_URL}/product/delete?productId=${selectedProduct}`,
+        `${REACT_APP_API_URL}/api/product/delete?productId=${selectedProduct}`,
         {
           headers: { Authorization: token },
         },

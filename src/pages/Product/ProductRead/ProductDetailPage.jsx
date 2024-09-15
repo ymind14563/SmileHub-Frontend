@@ -35,7 +35,7 @@ const ProductDetail = () => {
         console.log('loginLike > ', loginLike);
 
         await axios.post(
-          `${REACT_APP_API_URL}/product/likes/productId=${productId}`,
+          `${REACT_APP_API_URL}/api/product/likes/productId=${productId}`,
 
           {
             headers: {
@@ -68,7 +68,7 @@ const ProductDetail = () => {
     if (confirmDelete) {
       try {
         await axios.delete(
-          `${REACT_APP_API_URL}/product/delete?productId=${productId}`,
+          `${REACT_APP_API_URL}/api/product/delete?productId=${productId}`,
           {
             headers: {
               Authorization: token,
@@ -109,7 +109,7 @@ const ProductDetail = () => {
         const productId = product.productId;
 
         const response = await axios.post(
-          `${REACT_APP_API_URL}/room`,
+          `${REACT_APP_API_URL}/api/room`,
           {
             productId,
             buyerId,
@@ -148,7 +148,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `${REACT_APP_API_URL}/product/read?productId=${productId}`,
+          `${REACT_APP_API_URL}/api/product/read?productId=${productId}`,
           {
             headers: {
               Authorization: token,

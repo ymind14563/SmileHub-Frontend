@@ -23,7 +23,7 @@ const ChatRoomListContainer = () => {
 
     // 서버에서 채팅방 목록과 마지막 메시지 불러오기
     axios
-      .get(`${REACT_APP_API_URL}/room/list/${currentUser.userId}`, {
+      .get(`${REACT_APP_API_URL}/api/room/list/${currentUser.userId}`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },
@@ -83,7 +83,7 @@ const ChatRoomListContainer = () => {
       selectedRoom.lastMessage === '아직 메세지가 없습니다.'
     ) {
       axios
-        .get(`${REACT_APP_API_URL}/message/${roomId}`, {
+        .get(`${REACT_APP_API_URL}/api/message/${roomId}`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },

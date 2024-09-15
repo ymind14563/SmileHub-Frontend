@@ -41,7 +41,7 @@ const AddProduct = () => {
       const token = localStorage.getItem('token');
       console.log('token >> ', token);
       const response = await axios.post(
-        `${REACT_APP_API_URL}/product/write`,
+        `${REACT_APP_API_URL}/api/product/write`,
         formData,
         {
           headers: {

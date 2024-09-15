@@ -23,7 +23,7 @@ const SearchResults = () => {
     }
 
     try {
-      const res = await axios.post(`${REACT_APP_API_URL}/product/search`, {
+      const res = await axios.post(`${REACT_APP_API_URL}/api/product/search`, {
         searchKeyword: searchKeyword,
         searchType: searchType,
       });

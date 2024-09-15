@@ -12,7 +12,7 @@ const LikeList = () => {
     try {
       const token = localStorage.getItem('token'); // 토큰 가져오기
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage`,
+        `${REACT_APP_API_URL}/api/mypage`,
         {
           mypageList: 'likes',
         },
@@ -45,7 +45,7 @@ const LikeList = () => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.delete(
-        `${REACT_APP_API_URL}/mypage/likesdelete?productId=${productId}`,
+        `${REACT_APP_API_URL}/api/mypage/likesdelete?productId=${productId}`,
         {
           headers: {
             Authorization: token,

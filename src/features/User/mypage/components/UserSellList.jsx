@@ -11,7 +11,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage`,
+        `${REACT_APP_API_URL}/api/mypage`,
         {
           mypageList: 'sell',
         },
@@ -38,7 +38,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage/issell`,
+        `${REACT_APP_API_URL}/api/mypage/issell`,
         {
           productId,
           status: 'yes',
@@ -62,7 +62,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage/issell`,
+        `${REACT_APP_API_URL}/api/mypage/issell`,
         {
           productId,
           status: 'no',
@@ -88,7 +88,7 @@ const UserSellList = ({ fetchSellsList }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage/issell`,
+        `${REACT_APP_API_URL}/api/mypage/issell`,
         {
           productId,
           status: 'send',

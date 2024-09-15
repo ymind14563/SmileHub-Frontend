@@ -12,7 +12,7 @@ const UserBuyList = () => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage`,
+        `${REACT_APP_API_URL}/api/mypage`,
         {
           mypageList: 'buy',
         },
@@ -39,7 +39,7 @@ const UserBuyList = () => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage/check`,
+        `${REACT_APP_API_URL}/api/mypage/check`,
         {
           productId,
           status: 'yes',

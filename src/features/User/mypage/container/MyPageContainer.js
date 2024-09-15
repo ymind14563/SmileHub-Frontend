@@ -31,7 +31,7 @@ const MyPageContainer = () => {
         console.log('Token:', token);
 
         // DELETE 요청에 Authorization 헤더 추가
-        await axios.delete(`${REACT_APP_API_URL}/user/${userId}`, {
+        await axios.delete(`${REACT_APP_API_URL}/api/user/${userId}`, {
           headers: {
             Authorization: token,
           },

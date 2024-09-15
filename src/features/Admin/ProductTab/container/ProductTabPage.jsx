@@ -20,7 +20,7 @@ const ProductTabPage = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `${REACT_APP_API_URL}/product/list?page=${currentPage}&limit=99`,
+          `${REACT_APP_API_URL}/api/product/list?page=${currentPage}&limit=99`,
         );
 
         const fetchedProducts = response.data.productInfo.map((product) => ({

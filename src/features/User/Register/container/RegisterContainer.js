@@ -60,7 +60,7 @@ const RegisterContainer = () => {
     }
 
     try {
-      const res = await axios.post(`${REACT_APP_API_URL}/user`, {
+      const res = await axios.post(`${REACT_APP_API_URL}/api/user`, {
         nickname: data.nickname,
         email: data.email,
         password: data.password,
@@ -124,7 +124,7 @@ const RegisterContainer = () => {
     }
 
     try {
-      const res = await axios.post(`${REACT_APP_API_URL}/user/checkEmail`, {
+      const res = await axios.post(`${REACT_APP_API_URL}/api/user/checkEmail`, {
         email: checkEmail,
       });
       console.log('res >>', res);
@@ -147,9 +147,12 @@ const RegisterContainer = () => {
   const handleCheckNickname = async () => {
     setIsNicknameChecked(true);
     try {
-      const res = await axios.post(`${REACT_APP_API_URL}/user/checkNickname`, {
-        nickname: checkNickname,
-      });
+      const res = await axios.post(
+        `${REACT_APP_API_URL}/api/user/checkNickname`,
+        {
+          nickname: checkNickname,
+        },
+      );
       console.log('res >>', res);
 
       if (res.status === 200) {

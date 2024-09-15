@@ -44,7 +44,7 @@ const MyPage = ({
 
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/uploadImg/user/${currentUser.userId}`,
+        `${REACT_APP_API_URL}/api/uploadImg/user/${currentUser.userId}`,
         formData,
         {
           headers: {
@@ -80,7 +80,7 @@ const MyPage = ({
     const token = localStorage.getItem('token');
     try {
       const res = await axios.delete(
-        `${REACT_APP_API_URL}/uploadImg/user/${currentUser.userId}`,
+        `${REACT_APP_API_URL}/api/uploadImg/user/${currentUser.userId}`,
         {
           headers: {
             Authorization: token,

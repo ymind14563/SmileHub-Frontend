@@ -49,7 +49,7 @@ const UserList = ({ searchResults }) => {
       try {
         const token = localStorage.getItem('token');
         await axios.patch(
-          `${REACT_APP_API_URL}/user/status/${selectedUser}`,
+          `${REACT_APP_API_URL}/api/user/status/${selectedUser}`,
           {
             isActive: selectedAction.newStatus,
           },
@@ -72,7 +72,7 @@ const UserList = ({ searchResults }) => {
     } else if (selectedAction?.type === 'remove') {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`${REACT_APP_API_URL}/user/${selectedUser}`, {
+        await axios.delete(`${REACT_APP_API_URL}/api/user/${selectedUser}`, {
           headers: {
             Authorization: token,
           },

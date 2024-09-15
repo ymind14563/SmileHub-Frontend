@@ -52,7 +52,7 @@ const ChatRoomContainer = () => {
   useEffect(() => {
     if (currentChatRoom) {
       axios
-        .get(`${REACT_APP_API_URL}/message/${currentChatRoom.roomId}`, {
+        .get(`${REACT_APP_API_URL}/api/message/${currentChatRoom.roomId}`, {
           headers: {
             Authorization: localStorage.getItem('token'),
           },

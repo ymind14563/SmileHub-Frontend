@@ -42,7 +42,7 @@ const UserEditContainer = () => {
       console.log('token>>>>', token);
 
       const res = await axios.post(
-        `${REACT_APP_API_URL}/user/chkPassword/${currentUser.userId}`,
+        `${REACT_APP_API_URL}/api/user/chkPassword/${currentUser.userId}`,
         { password: oldPassword }, // 기존 비밀번호를 본문에 포함
         {
           headers: {
@@ -69,9 +69,12 @@ const UserEditContainer = () => {
       return;
     }
     try {
-      const res = await axios.post(`${REACT_APP_API_URL}/user/checkNickname`, {
-        nickname: checkNickname,
-      });
+      const res = await axios.post(
+        `${REACT_APP_API_URL}/api/user/checkNickname`,
+        {
+          nickname: checkNickname,
+        },
+      );
       console.log('res >>', res);
 
       if (res.status === 200) {
@@ -117,7 +120,7 @@ const UserEditContainer = () => {
     const token = localStorage.getItem('token');
     try {
       const res = await axios.patch(
-        `${REACT_APP_API_URL}/user/${currentUser.userId}`,
+        `${REACT_APP_API_URL}/api/user/${currentUser.userId}`,
         updatedData,
         {
           headers: {

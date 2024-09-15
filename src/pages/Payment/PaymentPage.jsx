@@ -126,7 +126,7 @@ const PaymentPage = () => {
 
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/mypage/payment`,
+        `${REACT_APP_API_URL}/api/mypage/payment`,
         {
           productId,
         },

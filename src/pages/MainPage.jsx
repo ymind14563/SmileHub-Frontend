@@ -19,7 +19,7 @@ export default function MainPage() {
       try {
         setLoading(true);
         const res = await axios.get(
-          `${REACT_APP_API_URL}/product/list?page=${page}&limit=${limit}`,
+          `${REACT_APP_API_URL}/api/product/list?page=${page}&limit=${limit}`,
         );
 
         const newProductInfo = res.data.productInfo;
@@ -148,7 +148,7 @@ export default function MainPage() {
     }
 
     try {
-      const res = await axios.post(`${REACT_APP_API_URL}/product/search`, {
+      const res = await axios.post(`${REACT_APP_API_URL}/api/product/search`, {
         searchKeyword: searchKeyword,
         searchType: 'name',
       });

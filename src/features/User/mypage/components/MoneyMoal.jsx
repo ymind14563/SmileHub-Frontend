@@ -15,7 +15,7 @@ const MoneyMoal = ({ isModalOpen, closeModal }) => {
     const token = localStorage.getItem('token'); // 토큰 가져오기
     try {
       const res = await axios.post(
-        `${REACT_APP_API_URL}/user/money/${userId}`,
+        `${REACT_APP_API_URL}/api/user/money/${userId}`,
         {
           money: isMoneyInput,
         },

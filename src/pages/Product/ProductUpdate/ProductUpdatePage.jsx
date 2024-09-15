@@ -25,7 +25,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `${REACT_APP_API_URL}/product/read?productId=${productId}`,
+          `${REACT_APP_API_URL}/api/product/read?productId=${productId}`,
         );
         setProduct(response.data);
       } catch (error) {
@@ -86,7 +86,7 @@ const EditProduct = () => {
       console.log('token >> ', token);
       const response = await axios
         .post(
-          `${REACT_APP_API_URL}/product/update?productId=${productId}`,
+          `${REACT_APP_API_URL}/api/product/update?productId=${productId}`,
           formData,
           {
             headers: {

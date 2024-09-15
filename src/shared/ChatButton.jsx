@@ -58,7 +58,7 @@ export default ChatButton;
 // const handleChatButtonClick = async (productId, buyerId, sellerId) => {
 //   try {
 //     // 채팅방이 이미 존재하는지 서버에 확인 후 방 생성
-//     const response = await axios.post(`${REACT_APP_API_URL}/room`, {
+//     const response = await axios.post(`${REACT_APP_API_URL}/api/room`, {
 //       productId,
 //       buyerId,
 //       sellerId,
