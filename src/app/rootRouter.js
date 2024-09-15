@@ -62,7 +62,6 @@ export const RootRouter = () => {
         />
         {/* <Route path="/product/delete" element={<DeleteProductPage />} /> */}
         <Route path="/chat" element={<ChatPage />} />
-        <Route path="/chat/:roomId" element={<ChatPage />} />
 
         <Route
           path="/admin"

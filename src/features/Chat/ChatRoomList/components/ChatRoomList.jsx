@@ -6,6 +6,7 @@ const ChatRoomList = ({ chatRooms, handleSelectRoom }) => {
       {chatRooms.map((room) => (
         <div
           key={room.roomId}
+          data-room-id={room.roomId}
           onClick={() => handleSelectRoom(room.roomId)}
           className="p-4 mb-2 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-200"
         >

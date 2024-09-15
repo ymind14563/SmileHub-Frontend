@@ -99,7 +99,6 @@ const ProductDetail = () => {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      // 토큰이 없을 때 로그인 모달을 띄움
       setModalMessage('로그인이 필요합니다.');
       setIsModalOpen(true);
     } else {
@@ -129,11 +128,25 @@ const ProductDetail = () => {
         const left = (window.innerWidth - width) / 2;
         const top = (window.innerHeight - height) / 2;
 
-        window.open(
-          `/chat/${roomId}`,
+        const newWindow = window.open(
+          `/chat`,
           '_blank',
           `width=${width},height=${height},left=${left},top=${top}`,
         );
+
+        // 새 창이 로드된 후, 채팅방 자동 클릭
+        newWindow.onload = () => {
+          setTimeout(() => {
+            const chatRoomElement = newWindow.document.querySelector(
+              `[data-room-id="${roomId}"]`,
+            );
+            if (chatRoomElement) {
+              chatRoomElement.click();
+            } else {
+              console.error('해당 채팅방을 찾을 수 없습니다.');
+            }
+          }, 500);
+        };
       } catch (error) {
         console.error('채팅방을 생성하는 중 오류 발생:', error);
       }
