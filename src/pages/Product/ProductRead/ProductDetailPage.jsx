@@ -182,12 +182,13 @@ const ProductDetail = () => {
   return (
     <div className="product-detail p-6 max-w-3xl mx-auto space-y-6">
       <section className="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-6">
-        <div className="w-full sm:w-1/2 aspect-w-1 aspect-h-1">
+        <div className="w-full sm:w-1/2 aspect-w-1 aspect-h-1 sm:aspect-w-16 sm:aspect-h-9">
           <Swiper
             spaceBetween={50}
             slidesPerView={1}
-            navigation
+            loop={true}
             pagination={{ clickable: true }}
+            navigation
             modules={[Navigation, Pagination]}
           >
             {product.images && product.images.length > 0 ? (
@@ -201,7 +202,11 @@ const ProductDetail = () => {
                 </SwiperSlide>
               ))
             ) : (
-              <p className="text-center">이미지가 없습니다.</p>
+              <img
+                src="/images/product.png"
+                alt="기본 이미지"
+                className="w-full h-full object-cover"
+              />
             )}
           </Swiper>
         </div>
