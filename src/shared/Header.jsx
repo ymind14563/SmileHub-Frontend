@@ -12,6 +12,8 @@ function Header() {
     (state) => state.user.currentUser.profileImage,
   );
   const currentUser = useSelector((state) => state.user.currentUser);
+  const isAdmin = currentUser.isAdmin; // isAdmin이 제대로 true로 설정되는지 확인
+  console.log('🚀 ~ Header ~ isAdmin:', isAdmin);
   const isAuthenticated = useSelector(
     (state) => state.user.currentUser.isAuthenticated,
   );

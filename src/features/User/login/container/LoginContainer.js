@@ -57,6 +57,7 @@ export const LoginContainer = () => {
             bname: user.Locations[0].depth3,
             detailAddress: user.Locations[0].depth4,
           },
+          isAdmin: user.Active.isAdmin,
           isActive: user.Active.isActive,
           isAuthenticated: true, // 로그인 성공 시 true
         }),
