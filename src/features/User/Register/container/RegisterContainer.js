@@ -40,10 +40,21 @@ const RegisterContainer = () => {
     e.preventDefault();
     console.log('data >>', data);
 
+    if (!checkNickname.trim()) {
+      alert('닉네임을 입력해주세요.');
+      return;
+    }
+
+    if (!data.address || !data.address.address) {
+      alert('주소를 입력해주세요.');
+      return;
+    }
+
     if (!isEmailChecked) {
       alert('이메일 중복 검사를 먼저 해주세요.');
       return;
     }
+
     if (!isNicknameChecked) {
       alert('닉네임 중복 검사를 먼저 해주세요.');
       return;
